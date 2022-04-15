@@ -19,7 +19,8 @@ return new class extends Migration
             $table->bigInteger('user_id');
             $table->string('title');
             $table->string('status');
-            $table->longText('content');
+            $table->longText('content');            
+            $table->date('end');
             $table->timestamps();
         });
     }

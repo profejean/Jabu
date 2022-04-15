@@ -41,6 +41,7 @@ class TaskDaily extends Command
             $taskPrograming->content = $task->content;
             $taskPrograming->check = 'New Task';
             $taskPrograming->date = $date->toDateTimeString();
+            $taskPrograming->end = $task->end;
             $taskPrograming->save();
         }
     }

@@ -23,7 +23,8 @@ class TaskFactory extends Factory
             'type' => $this->faker->randomElement($array = array ('everyDay','everyMonday','Every-M-W-F','firstFiveDayMonth','fiveDayMonthMarch')),         
             'title' => $this->faker->word,
             'status' => $this->faker->randomElement($array = array ('Active','Inactive')),
-            'content' => $this->faker->sentence
+            'content' => $this->faker->sentence,
+            'end' => $this->faker->dateTimeBetween('now', '+1 weeks')
         ];
     }
 }

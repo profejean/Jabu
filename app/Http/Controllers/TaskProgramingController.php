@@ -16,7 +16,7 @@ class TaskProgramingController extends Controller
     {
         $date = Carbon::now('America/Caracas');
 
-        return TaskPrograming::where('date','=',$date->toDateString())->select('id','type','user_id','task_id','title','date','content','check')->get();
+        return TaskPrograming::where('date','=',$date->toDateString())->select('id','type','user_id','task_id','title','date','content','check','end')->get();
     }
 
     public function tomorrow()
@@ -32,7 +32,7 @@ class TaskProgramingController extends Controller
         $sdate = Carbon::parse('this monday')->toDateString();
         $edate = Carbon::parse('this monday')->addDay(6)->toDateString();    
 
-        return TaskPrograming::where('date', '>=', $sdate)->where('date', '<=', $edate)->select('id','type','user_id','task_id','title','date','content','check')->get();
+        return TaskPrograming::where('date', '>', $sdate)->where('end', '<=', $edate)->select('id','type','user_id','task_id','title','date','content','check')->get();
     }
 
     public function nextask()

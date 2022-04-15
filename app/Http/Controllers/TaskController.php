@@ -22,7 +22,8 @@ class TaskController extends Controller
         $request->validate([
             'type'=>'required',          
             'title'=>'required',       
-            'content'=>'required'
+            'content'=>'required',
+            'end'=>'required'
         ]);
 
         try{
@@ -33,6 +34,7 @@ class TaskController extends Controller
             $task->title = $request->get('title');
             $task->status = 'Active';
             $task->content = $request->get('content');
+            $task->end = $request->get('end');
             $task->save();
 
             return response()->json([
@@ -61,7 +63,8 @@ class TaskController extends Controller
             'title'=>'required',         
             'content'=>'required', 
             'status'=>'required',
-            'type'=>'required'    
+            'type'=>'required', 
+            'end'=>'required',   
         ]);
 
         try{
@@ -69,7 +72,7 @@ class TaskController extends Controller
             $task->fill($request->all())->update();            
 
             return response()->json([
-                'message'=>'Task Updated Successfully!!'
+                'message'=>'Task Updated Successfully !!'
             ]);
 
         }catch(\Exception $e){
@@ -89,7 +92,7 @@ class TaskController extends Controller
             return response()->json([
                 'message'=>'Task Deleted Successfully!!'
             ]);
-            
+             
         } catch (\Exception $e) {
             \Log::error($e->getMessage());
             return response()->json([

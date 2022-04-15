@@ -19,6 +19,7 @@ return new class extends Migration
             $table->bigInteger('user_id');
             $table->bigInteger('task_id');
             $table->date('date');
+            $table->date('end');
             $table->string('title');
             $table->string('check');
             $table->longText('content');

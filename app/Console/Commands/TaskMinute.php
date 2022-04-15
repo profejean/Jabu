@@ -41,6 +41,7 @@ class TaskMinute extends Command
             $taskPrograming->check = 'New Task';
             $taskPrograming->content = $task->content;
             $taskPrograming->date = $date->toDateTimeString();
+            $taskPrograming->end = $task->end;
             $taskPrograming->save();
         }
     }

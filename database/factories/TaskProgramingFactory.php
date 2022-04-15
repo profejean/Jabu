@@ -20,10 +20,11 @@ class TaskProgramingFactory extends Factory
             'user_id' => 1,
             'task_id' => 1,
             'type' => $this->faker->randomElement($array = array ('everyDay','everyMonday','Every-M-W-F','firstFiveDayMonth','fiveDayMonthMarch')),
-            'date' => $this->faker->date($format = 'Y-m-d', $max = 'now'),
+            'date' => dateTimeBetween('now', '+1 days'),
             'title' => $this->faker->word,
             'check' => 'New Task',
-            'content' => $this->faker->sentence
+            'content' => $this->faker->sentence,
+            'end' => $this->faker->dateTimeBetween('now', '+1 weeks'),
         ];
     }
 }

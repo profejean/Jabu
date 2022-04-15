@@ -22,6 +22,7 @@ class TaskPrograming extends Model
                             'title',
                             'content',
                             'date',
-                            'check'
+                            'check',
+                            'end'
                           ];
 }
